@@ -15,6 +15,7 @@ Gem::Specification.new do |spec|
   spec.description = "OmniAuth strategy for microsoft"
   spec.license = "AGPL-3.0"
   spec.homepage = "https://github.com/openpoke/decidim-module-microsoft"
+  spec.required_ruby_version = ">= 2.7"
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
