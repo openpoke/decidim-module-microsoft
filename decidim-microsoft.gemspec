@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 lib = File.expand_path("lib", __dir__)
@@ -26,6 +25,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "decidim-core", Decidim::Microsoft::COMPAT_DECIDIM_VERSION
   spec.add_dependency "omniauth-azure-activedirectory-v2", "~> 1.0"
- 
+
   spec.add_development_dependency "decidim-dev", Decidim::Microsoft::COMPAT_DECIDIM_VERSION
 end

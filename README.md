@@ -43,13 +43,13 @@ You can also customize the way you extract these secrets by creating a initializ
 # config/initializers/microsoft_omniauth.rb
 
 Decidim::Microsoft.configure do |config|
-	config.omniauth = {
-		enabled: Rails.application.secrets.dig(:omniauth, :microsoft, :enabled),
-		client_id: Rails.application.secrets.dig(:omniauth, :microsoft, :client_id:),
-		tenant_id: Rails.application.secrets.dig(:omniauth, :microsoft, :tenant_id),
-		secret_value: Rails.application.secrets.dig(:omniauth, :microsoft, :secret_value),
-		secret_id: Rails.application.secrets.dig(:omniauth, :microsoft, :secret_id)
-	}
+  config.omniauth = {
+    enabled: Rails.application.secrets.dig(:omniauth, :microsoft, :enabled),
+    client_id: Rails.application.secrets.dig(:omniauth, :microsoft, :client_id:),
+    tenant_id: Rails.application.secrets.dig(:omniauth, :microsoft, :tenant_id),
+    secret_value: Rails.application.secrets.dig(:omniauth, :microsoft, :secret_value),
+    secret_id: Rails.application.secrets.dig(:omniauth, :microsoft, :secret_id)
+  }
 end
 ```
 

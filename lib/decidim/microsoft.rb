@@ -4,12 +4,12 @@ require "decidim/microsoft/engine"
 
 module Decidim
   # This namespace holds the logic of the `decidim-microsoft` module.
-	module Microsoft
-  	include ActiveSupport::Configurable
+  module Microsoft
+    include ActiveSupport::Configurable
 
-  	OMNIAUTH_PROVIDER_NAME = "azure_activedirectory_v2"
+    OMNIAUTH_PROVIDER_NAME = "azure_activedirectory_v2"
 
-  	# setup a hash with :client_id, :client_secret and :site to enable omniauth authentication
+    # setup a hash with :client_id, :client_secret and :site to enable omniauth authentication
     config_accessor :omniauth do
       {
         enabled: ENV["MICROSOFT_CLIENT_ID"].present?,
@@ -19,5 +19,5 @@ module Decidim
         secret_id: ENV["MICROSOFT_SECRET_ID"]
       }
     end
-	end
+  end
 end
