@@ -1,0 +1,10 @@
+---
+en:
+  decidim:
+    system:
+      organizations:
+        omniauth_settings:
+          azure_activedirectory_v2:
+            client_id: Application (client) ID
+            client_secret: Client secret ID
+            tenant_id: Directory (tenant) ID

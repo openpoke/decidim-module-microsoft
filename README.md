@@ -2,12 +2,14 @@
 
 This is the Microsoft/Azure ActiveDirectory (v2) strategy for login into Decidim using OmniAuth (SSO).
 
+![Login with Azure](features/login.png)
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-omniauth-microsoft', git: "https://github.com/openpoke/decidim-module-omniauth-microsoft", branch: "main"
+gem 'decidim-microsoft', git: "https://github.com/openpoke/decidim-module-microsoft", branch: "main"
 ```
 
 And then execute:
@@ -29,13 +31,12 @@ https://medium.com/committed-engineers/setup-azure-ad-oauth-2-0-with-ruby-on-rai
 By default, this strategy can be automatically configure using just these ENV vars:
 
 ```
-MICROSOFT_CLIENT_ID=XXXX
-MICROSOFT_TENANT_ID=XXXX
-MICROSOFT_SECRET_VALUE=XXXX
-MICROSOFT_SECRET_ID=XXXX
+AZURE_CLIENT_ID=XXXX
+AZURE_TENANT_ID=XXXX
+AZURE_CLIENT_SECRET=XXXX
 ```
 
-By setting the ENV var `MICROSOFT_CLIENT_ID` to value that's not empty, the "login with microsoft" button will appear automatically in you Decidim instance.
+By setting the ENV var `AZURE_CLIENT_ID` to value that's not empty, the "login with microsoft" button will appear automatically in you Decidim instance.
 
 You can also customize the way you extract these secrets by creating a initializer file, such as:
 
@@ -47,8 +48,14 @@ Decidim::Microsoft.configure do |config|
     enabled: Rails.application.secrets.dig(:omniauth, :microsoft, :enabled),
     client_id: Rails.application.secrets.dig(:omniauth, :microsoft, :client_id:),
     tenant_id: Rails.application.secrets.dig(:omniauth, :microsoft, :tenant_id),
-    secret_value: Rails.application.secrets.dig(:omniauth, :microsoft, :secret_value),
-    secret_id: Rails.application.secrets.dig(:omniauth, :microsoft, :secret_id)
+    client_secret: Rails.application.secrets.dig(:omniauth, :microsoft, :client_secret),
+    icon_path: Rails.application.secrets.dig(:omniauth, :microsoft, :icon_path), # be aware of webpacker, must by media/images/something
+    # optional variables:
+    # See https://github.com/RIPAGlobal/omniauth-azure-activedirectory-v2/blob/master/lib/omniauth/strategies/azure_activedirectory_v2.rb
+    scope: Rails.application.secrets.dig(:omniauth, :microsoft, :scope),
+    base_azure_url: Rails.application.secrets.dig(:omniauth, :microsoft, :base_azure_url),
+    authorize_params: Rails.application.secrets.dig(:omniauth, :microsoft, :authorize_params),
+    domain_hint: Rails.application.secrets.dig(:omniauth, :microsoft, :domain_hint)
   }
 end
 ```
@@ -57,7 +64,7 @@ And, of course, having these values in your `config/secrets.yml` file.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/openpoke/decidim-module-omniauth-microsoft.
+Bug reports and pull requests are welcome on GitHub at https://github.com/openpoke/decidim-module-microsoft.
 
 ### Developing
 
