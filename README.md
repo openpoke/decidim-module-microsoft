@@ -15,7 +15,7 @@ This is the Microsoft/Azure ActiveDirectory (v2) strategy for login into Decidim
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-microsoft', git: "https://github.com/openpoke/decidim-module-microsoft", branch: "main"
+gem 'decidim-microsoft'
 ```
 
 And then execute:
@@ -28,9 +28,21 @@ bundle
 
 ### Register a new App in your Azure account
 
-Follow the initial instructions stated here:
+Extracted from the initial instructions explained here:
 
 https://medium.com/committed-engineers/setup-azure-ad-oauth-2-0-with-ruby-on-rails-and-devise-39848e3ed532
+
+1. Go to your Azure account, [configure a new tenant](https://docs.microsoft.com/en-gb/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) if you don't have any.
+
+2. Register a new app n your tenant Azure Active Directory: ![Config step 1](features/azure_conf1.png)
+
+3. Use `https://example.org/users/auth/azure_activedirectory_v2/callback` as the callback URI (change `example.org` for your own domain)
+
+4. Generate a new client ID/Secret in "Certificates & secrets" ![Config step 2](features/azure_conf2.png)
+
+5. Use the `Appliction (client) ID`, `Directory (tentant) ID` and the `Secret ID` to define the ENV variables.
+
+6. Happy login!
 
 ### Configure the Decidim OAuth clients
 
