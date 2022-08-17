@@ -26,7 +26,34 @@ https://medium.com/committed-engineers/setup-azure-ad-oauth-2-0-with-ruby-on-rai
 
 ### Configure the Decidim OAuth clients
 
-TODO...
+By default, this strategy can be automatically configure using just these ENV vars:
+
+```
+MICROSOFT_CLIENT_ID=XXXX
+MICROSOFT_TENANT_ID=XXXX
+MICROSOFT_SECRET_VALUE=XXXX
+MICROSOFT_SECRET_ID=XXXX
+```
+
+By setting the ENV var `MICROSOFT_CLIENT_ID` to value that's not empty, the "login with microsoft" button will appear automatically in you Decidim instance.
+
+You can also customize the way you extract these secrets by creating a initializer file, such as:
+
+```ruby
+# config/initializers/microsoft_omniauth.rb
+
+Decidim::Microsoft.configure do |config|
+	config.omniauth = {
+		enabled: Rails.application.secrets.dig(:omniauth, :microsoft, :enabled),
+		client_id: Rails.application.secrets.dig(:omniauth, :microsoft, :client_id:),
+		tenant_id: Rails.application.secrets.dig(:omniauth, :microsoft, :tenant_id),
+		secret_value: Rails.application.secrets.dig(:omniauth, :microsoft, :secret_value),
+		secret_id: Rails.application.secrets.dig(:omniauth, :microsoft, :secret_id)
+	}
+end
+```
+
+And, of course, having these values in your `config/secrets.yml` file.
 
 ## Contributing
 
