@@ -40,7 +40,7 @@ https://medium.com/committed-engineers/setup-azure-ad-oauth-2-0-with-ruby-on-rai
 
 4. Generate a new client ID/Secret in "Certificates & secrets" ![Config step 2](features/azure_conf2.png)
 
-5. Use the `Appliction (client) ID`, `Directory (tentant) ID` and the `Secret ID` to define the ENV variables.
+5. Use the `Application (client) ID`, `Directory (tentant) ID` and the `Secret ID` to define the ENV variables.
 
 6. Happy login!
 
