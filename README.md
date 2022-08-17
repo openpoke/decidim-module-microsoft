@@ -1,5 +1,11 @@
 # OmniAuth::Decidim
 
+[![[CI] Lint](https://github.com/openpoke/decidim-module-microsoft/actions/workflows/lint.yml/badge.svg)](https://github.com/openpoke/decidim-module-microsoft/actions/workflows/lint.yml)
+[![[CI] Test](https://github.com/openpoke/decidim-module-microsoft/actions/workflows/test.yml/badge.svg)](https://github.com/openpoke/decidim-module-microsoft/actions/workflows/test.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7d9a138a045b30851a33/maintainability)](https://codeclimate.com/github/openpoke/decidim-module-microsoft/maintainability)
+[![codecov](https://codecov.io/gh/openpoke/decidim-module-microsoft/branch/main/graph/badge.svg?token=V3KR51DGFN)](https://codecov.io/gh/openpoke/decidim-module-microsoft)
+[![Gem Version](https://badge.fury.io/rb/decidim-microsoft.svg)](https://badge.fury.io/rb/decidim-microsoft)
+
 This is the Microsoft/Azure ActiveDirectory (v2) strategy for login into Decidim using OmniAuth (SSO).
 
 ![Login with Azure](features/login.png)
